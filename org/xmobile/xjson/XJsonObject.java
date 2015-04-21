@@ -186,9 +186,9 @@ public class XJsonObject<T> {
 	}
 	
 	private Object toInteger(Object obj){
-		if(obj.toString().equalsIgnoreCase("true") || obj.toString().equalsIgnoreCase("1")){
+		if(obj.toString().equalsIgnoreCase("true")){
 			obj = 1;
-		}else{
+		}else if(obj.toString().equalsIgnoreCase("false")){
 			obj = 0;
 		}
 		return obj;
