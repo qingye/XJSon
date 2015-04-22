@@ -106,7 +106,9 @@ public class XJsonObject<T> {
 			}else{
 				o = new ArrayList<Object>();
 			}
-		}else if(XUtils.isMap(clz) || !XUtils.isJavaClass(clz)){
+		}else if(XUtils.isMap(clz)){
+			o = new HashMap<Object, Object>();
+		}else if(!XUtils.isJavaClass(clz)){
 			try {
 				o = clz.newInstance();
 			} catch (Exception e) {
