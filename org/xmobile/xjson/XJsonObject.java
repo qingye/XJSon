@@ -191,7 +191,7 @@ public class XJsonObject<T> {
 		}else if(obj.toString().equalsIgnoreCase("false")){
 			obj = 0;
 		}
-		return obj;
+		return ((Double)toDouble(obj)).intValue();
 	}
 	
 	private Object toDouble(Object obj){
