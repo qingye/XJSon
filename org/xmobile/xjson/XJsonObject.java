@@ -372,15 +372,9 @@ public class XJsonObject<T> {
 		Iterator<?> iterator = jobj.keys();
 		while(iterator.hasNext()) {
 			Object key = iterator.next();
-			Object v = null;
-			try {
-				v = jobj.get((String)key);
-			} catch (JSONException e) {
-				e.printStackTrace();
-			}
-			
-			v = getObjects(v, types[1]);
+			Object v = getValueByKey(jobj, (String)key);
 			if(v != null){
+				v = getObjects(v, types[1]);
 				((HashMap<Object, Object>)o).put(key, v);
 			}
 		}
