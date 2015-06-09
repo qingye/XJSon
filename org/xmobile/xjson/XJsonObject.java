@@ -23,11 +23,19 @@ public class XJsonObject<T> {
 	}
 	
 	public void setJson(String json, Type type){
-		obj = doInit(jsonToObjects(json, XJsonType.get(type).getRawType()), type);
+		obj = dequote(doInit(jsonToObjects(json, XJsonType.get(type).getRawType()), type));
 	}
 
 	public Object getObj() {
 		return obj;
+	}
+
+	private Object dequote(Object o){
+		if(o instanceof String){
+			String str = o.toString();
+			o = str.subSequence(1, str.length() - 1);
+		}
+		return o;
 	}
 
 	/******************************************************************
