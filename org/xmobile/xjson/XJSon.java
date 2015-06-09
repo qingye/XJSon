@@ -11,7 +11,6 @@ public class XJSon {
 	}
 	
 	public Object fromJson(String json, Type type){
-		System.out.println("[fromJson] clz = " + type);
 		XJsonObject<?> xObject = new XJsonObject<Object>(json, type);
 		return xObject.getObj();
 	}
